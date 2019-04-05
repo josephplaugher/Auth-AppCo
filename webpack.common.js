@@ -1,4 +1,5 @@
 const path = require('path')
+const Dotenv = require('dotenv-webpack')
 
 module.exports = {
 	entry: './src/index.js',
@@ -18,10 +19,6 @@ module.exports = {
 				}
 			}
 		]
-	}
-	/*,
-  externals: {
-    'react': 'commonjs react', // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
-    'axios': 'commonjs axios'  
-  }*/
+	},
+	plugins: [new Dotenv()]
 }

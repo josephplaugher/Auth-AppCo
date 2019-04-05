@@ -1,8 +1,8 @@
-const CookieConfig = () => {
+const CookieConfig = (maxAge) => {
 	let config = {
 		//expires and maxage do the same thing but in different browsers
-		expires: new Date(Date.now() + process.env.MAX_AGE),
-		maxAge: process.env.MAX_AGE,
+		expires: new Date(Date.now() + maxAge),
+		maxAge: maxAge,
 		//do not allow access to the cookie from javascript
 		httpOnly: true,
 		//if if production mode, set secure cookie

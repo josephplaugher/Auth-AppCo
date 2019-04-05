@@ -1,11 +1,11 @@
 import jwt from 'jsonwebtoken'
 import CookieConfig from './CookieConfig'
 
-const SetLogin_Client = (userData, res) => {
-	var token = jwt.sign({ userData: userData }, process.env.JWT_SECRET, {
-		expiresIn: maxAge
+const SetLogin_Client = (userData, res, secret, expiresIn) => {
+	var token = jwt.sign({ userData: userData }, secret, {
+		expiresIn: expiresIn
 	})
-	res.cookie(process.env.COOKIE_NAME, { token: token }, CookieConfig())
+	res.cookie(process.env.COOKIE_NAME, { token: token }, CookieConfig(expiresIn))
 	return token
 }
 
